@@ -2,8 +2,8 @@ depage API
 ---
 
 ## What is it?
-depage is service that provides a UI for your smart contracts on the blockchain. Customize the UI without writing the 
-code and share it with the users, we will handle the rest.  
+[depage.app](https://depage.app) provides a UI for your smart contracts on the blockchain. Customize the UI without 
+writing any code and share it with the users, we will handle the rest.  
 ⭐️ Automatic wallet connection  
 ⭐️ Responsive UI  
 ⭐️ Multi-chain
