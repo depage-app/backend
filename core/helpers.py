@@ -70,6 +70,20 @@ def reformat_abi_to_config(data: list) -> list:
     for obj in data:
         if obj.get('type') == 'function' and obj.get('stateMutability') in ('payable', 'nonpayable'):
             inputs = list()
+
+            # Adding a field for payable amount
+            if obj.get('stateMutability') == 'payable':
+                inputs.append(
+                    {'id': '$value',
+                     'name': 'payable value',
+                     'description': None,
+                     'type': 'payable',
+                     'hidden': False,
+
+                     'value': None,
+                     'multiply_by': None}
+                )
+
             for _input in obj['inputs']:
                 inputs.append(
                     {'id': _input['name'],
