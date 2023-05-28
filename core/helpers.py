@@ -114,7 +114,7 @@ def reformat_abi_to_config(data: list) -> list:
 
             filtered.append(
                 {'id': obj["name"],
-                 'hidden': False,
+                 'hidden': True,
                  'name': obj["name"],
                  'description': None,
                  'inputs': inputs}
