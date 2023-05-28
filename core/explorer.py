@@ -2,6 +2,7 @@ import json
 import requests
 
 from core.chains import chains
+from core.config.logger import log
 
 
 class Explorer:
@@ -14,5 +15,6 @@ class Explorer:
             api_key = f'&apikey={apikey}'
 
         response = requests.get(chains[self.chain]['abi_api_request_url'] + address + api_key)
+        log.debug(f'Response from explorer API: {response.content}')
         data = response.json()
         return json.loads(data['result'])
