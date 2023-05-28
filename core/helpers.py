@@ -39,11 +39,11 @@ async def create_smart_contract_page(address: str, chain: str, creator_wallet_ad
 
 async def update_page(page_id: str, config: list, name: str = '', description: str = ''):
     """ Creating custom page for the smart contract with a unique id """
-    await db.pages.find_one_and_update({'_id': ObjectId(page_id)},
-                                       {'$set': {'config': config,
-                                                 'name': name,
-                                                 'description': description}},
-                                       return_document=True)
+    return await db.pages.find_one_and_update({'_id': ObjectId(page_id)},
+                                              {'$set': {'config': config,
+                                                        'name': name,
+                                                        'description': description}},
+                                              return_document=True)
 
 
 async def get_page(page_id: str) -> Optional[dict]:
