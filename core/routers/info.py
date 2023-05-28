@@ -14,3 +14,13 @@ async def ping():
 async def get_chains():
     """ Get list of supported chains """
     return {'data': helpers.get_supported_chains()}
+
+
+@router.get('/metadata/{token_id}', tags=['Info'])
+async def nft_metadata(token_id):
+    """ Returning NFT metadata """
+    return {
+        'name': f'DePage NFT # {token_id}',
+        'description': 'Visit us at https://depage.app',
+        'image': 'ipfs://QmQAxNndsVGVC4crFJLUHcg9tkwodUbbGKVm2oahs2jMZU'
+    }
