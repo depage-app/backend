@@ -30,8 +30,8 @@ async def create_smart_contract_page(address: str, chain: str, creator_wallet_ad
         {'contract': contract['_id'],
          'creator': creator_wallet_address,
          'config': _page_config,
-         'name': '',
-         'description': ''}
+         'name': f'Contract 0x...{address[-5:]}',
+         'description': f'{chains.chains[chain]["name"]} | Contract address: {address}'}
     )
 
     return {'id': str(page.inserted_id), 'config': _page_config, 'name': '', 'description': ''}
