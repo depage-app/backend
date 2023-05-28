@@ -1,7 +1,6 @@
 import os
 
 chains = {
-    '''
     'ethereum': {
         'name': 'Ethereum',
         'rpc_url': 'https://eth.llamarpc.com',
@@ -17,7 +16,6 @@ chains = {
         'api_key': os.environ.get('BSCSCAN_API_KEY'),
         'chain_id': 56
     },
-    '''
 
     'polygon': {
         'name': 'Polygon',
