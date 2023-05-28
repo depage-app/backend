@@ -7,7 +7,7 @@ chains = {
         'abi_api_request_url': 'https://api.etherscan.io/api?module=contract&action=getabi&address=',
         'api_key': os.environ.get('ETHERSCAN_API_KEY'),
         'chain_id': 1,
-        'disabled': True
+        'disabled': False
     },
     
     'bsc': {
@@ -16,7 +16,7 @@ chains = {
         'abi_api_request_url': 'https://api.bscscan.com/api?module=contract&action=getabi&address=',
         'api_key': os.environ.get('BSCSCAN_API_KEY'),
         'chain_id': 56,
-        'disabled': True
+        'disabled': False
     },
 
     'polygon': {
@@ -25,6 +25,15 @@ chains = {
         'abi_api_request_url': 'https://api.polygonscan.com/api?module=contract&action=getabi&address=',
         'api_key': os.environ.get('POLYGONSCAN_API_KEY'),
         'chain_id': 137,
+        'disabled': False
+    },
+
+    'mantle-testnet': {
+        'name': 'Mantle Testnet',
+        'rpc_url': 'https://rpc.testnet.mantle.xyz',
+        'abi_api_request_url': 'https://explorer.testnet.mantle.xyz/api?module=contract&action=getabi&address=',
+        'api_key': None,
+        'chain_id': 5001,
         'disabled': False
     }
 }
