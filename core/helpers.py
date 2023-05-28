@@ -50,7 +50,16 @@ async def get_page(page_id: str) -> Optional[dict]:
     """ Returns page configuration by id """
     try:
         page = await db.pages.find_one({'_id': ObjectId(page_id)})
-        return {'id': str(page['_id']), 'config': page['config'], 'name': page['name'], 'description': page['description']}
+        contract = await db.contracts.find_one({'_id': page['contract']})
+
+        return {'id': str(page['_id']),
+                'name': page['name'],
+                'description': page['description'],
+
+                'config': page['config'],
+                'abi': contract['abi'],
+                'contract_address': contract['address'],
+                'chain_id': chains.chains[contract['chain']]['chain_id']}
     except Exception as e:
         log.warning(f'Error in get_page: {e}')
         return None
@@ -63,7 +72,8 @@ def get_supported_chains() -> list:
     for chain in chains.chains.keys():
         supported_chains.append(
             {'id': chain,
-             'name': chains.chains[chain]['name']}
+             'name': chains.chains[chain]['name'],
+             'chain_id': chains.chains[chain]['chain_id']}
         )
 
     return supported_chains

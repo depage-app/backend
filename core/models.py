@@ -46,6 +46,7 @@ class Chain(BaseModel):
     """ Chain object """
     id: str
     name: str
+    chain_id: int
 
 
 class ChainsListAPIResponse(BaseModel):
@@ -56,7 +57,11 @@ class PageAPIResponseModel(BaseModel):
     id: str
     name: Optional[str]
     description: Optional[str]
+
     config: List[Optional[Function]]
+    abi: list
+    contract_address: str
+    chain_id: int
 
 
 class UpdatePageRequestBody(BaseModel):

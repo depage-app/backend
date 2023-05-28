@@ -24,10 +24,6 @@ async def create_page(creator_address: str, smart_contract_address: str, chain: 
 @router.patch('/page', response_model=models.PageAPIResponseModel, tags=['Pages'])
 async def update_page(body: models.UpdatePageRequestBody):
     """ Updating page configuration """
-    data = await helpers.update_page(**body.dict())
-
-    data['id'] = str(data['_id'])
-    del data['_id']
-
-    return data
+    await helpers.update_page(**body.dict())
+    return await helpers.get_page(body.page_id)
 
