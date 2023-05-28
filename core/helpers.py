@@ -113,7 +113,7 @@ def reformat_abi_to_config(data: list) -> list:
                 )
 
             filtered.append(
-                {'id': f'{obj["name"]}-{data.index(obj)}',
+                {'id': {obj["name"]},
                  'hidden': False,
                  'name': obj["name"],
                  'description': None,
