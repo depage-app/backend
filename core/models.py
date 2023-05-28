@@ -47,6 +47,7 @@ class Chain(BaseModel):
     id: str
     name: str
     chain_id: int
+    disabled: bool
 
 
 class ChainsListAPIResponse(BaseModel):

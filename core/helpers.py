@@ -73,7 +73,8 @@ def get_supported_chains() -> list:
         supported_chains.append(
             {'id': chain,
              'name': chains.chains[chain]['name'],
-             'chain_id': chains.chains[chain]['chain_id']}
+             'chain_id': chains.chains[chain]['chain_id'],
+             'disabled': chains.chains[chain]['disabled']}
         )
 
     return supported_chains
