@@ -36,6 +36,7 @@ class FunctionInputField(BaseModel):
 class Function(BaseModel):
     """ Model of the single smart contract function """
     id: str
+    hidden: bool
     name: Optional[str]  # custom set function name
     description: Optional[str]  # custom set function description
     inputs: List[FunctionInputField]
