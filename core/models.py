@@ -61,4 +61,6 @@ class PageAPIResponseModel(BaseModel):
 class UpdatePageRequestBody(BaseModel):
     """ Request json body for page update """
     page_id: str
+    name: Optional[str]
+    description: Optional[str]
     config: List[Optional[Function]]
