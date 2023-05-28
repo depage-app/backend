@@ -50,7 +50,7 @@ async def get_page(page_id: str) -> Optional[dict]:
     """ Returns page configuration by id """
     try:
         page = await db.pages.find_one({'_id': ObjectId(page_id)})
-        return {'id': str(page['_id']), 'config': page['config']}
+        return {'id': str(page['_id']), 'config': page['config'], 'name': page['name'], 'description': page['description']}
     except Exception as e:
         log.warning(f'Error in get_page: {e}')
         return None
