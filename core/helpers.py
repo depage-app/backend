@@ -37,10 +37,10 @@ async def create_smart_contract_page(address: str, chain: str, creator_wallet_ad
     return {'id': str(page.inserted_id), 'config': _page_config, 'name': '', 'description': ''}
 
 
-async def update_page(page_id: str, new_config: list, name: str, description: str):
+async def update_page(page_id: str, config: list, name: str, description: str):
     """ Creating custom page for the smart contract with a unique id """
     await db.pages.update_one({'_id': ObjectId(page_id)},
-                              {'$set': {'config': new_config,
+                              {'$set': {'config': config,
                                         'name': name,
                                         'description': description}})
 
