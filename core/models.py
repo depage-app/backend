@@ -17,6 +17,8 @@ class Page:
     contract: ObjectId
     creator: str
     config: list
+    name: Optional[str]
+    description: Optional[str]
 
 
 class FunctionInputField(BaseModel):
@@ -51,6 +53,8 @@ class ChainsListAPIResponse(BaseModel):
 
 class PageAPIResponseModel(BaseModel):
     id: str
+    name: Optional[str]
+    description: Optional[str]
     config: List[Optional[Function]]
 
 

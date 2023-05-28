@@ -29,15 +29,20 @@ async def create_smart_contract_page(address: str, chain: str, creator_wallet_ad
     page = await db.pages.insert_one(
         {'contract': contract['_id'],
          'creator': creator_wallet_address,
-         'config': _page_config}
+         'config': _page_config,
+         'name': '',
+         'description': ''}
     )
 
-    return {'id': str(page.inserted_id), 'config': _page_config}
+    return {'id': str(page.inserted_id), 'config': _page_config, 'name': '', 'description': ''}
 
 
-async def update_page(page_id: str, new_config: list):
+async def update_page(page_id: str, new_config: list, name: str, description: str):
     """ Creating custom page for the smart contract with a unique id """
-    await db.pages.update_one({'_id': ObjectId(page_id)}, {'$set': {'config': new_config}})
+    await db.pages.update_one({'_id': ObjectId(page_id)},
+                              {'$set': {'config': new_config,
+                                        'name': name,
+                                        'description': description}})
 
 
 async def get_page(page_id: str) -> Optional[dict]:
