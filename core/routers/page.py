@@ -18,7 +18,7 @@ async def create_page(creator_address: str, smart_contract_address: str, chain: 
     """ Initialize page """
     await helpers.get_abi(smart_contract_address, chain)
     page = await helpers.create_smart_contract_page(smart_contract_address, chain, creator_address)
-    return page
+    return await helpers.get_page(page['id'])
 
 
 @router.patch('/page', response_model=models.PageAPIResponseModel, tags=['Pages'])
